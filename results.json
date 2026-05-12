@@ -1,0 +1,16 @@
+    # Save results in required JSON format
+    results = {
+        "baseline": {
+            "per_channel_db": [float(v) for v in baseline_score["per_channel_db"]],
+            "average_db": float(baseline_score["average_db"])
+        },
+        "yours": {
+            "per_channel_db": [float(v) for v in your_score["per_channel_db"]],
+            "average_db": float(your_score["average_db"])
+        }
+    }
+    
+    with open("results.json", "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
+    
+    print("Results saved to results.json")
